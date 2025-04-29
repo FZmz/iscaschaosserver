@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.SteadyStateRepositoryMapper">
+
+    <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.SteadyStateRepository">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="steadyStateName" column="steady_state_name" jdbcType="VARCHAR"/>
+            <result property="handler" column="handler" jdbcType="VARCHAR"/>
+            <result property="type" column="type" jdbcType="INTEGER"/>
+            <result property="isDelete" column="is_delete" jdbcType="INTEGER"/>
+            <result property="steadyStateUnit" column="steady_state_unit" jdbcType="VARCHAR"/>
+            <result property="handlePath" column="handle_path" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,steady_state_name,handler,
+        type,is_delete,steady_state_unit
+    </sql>
+</mapper>

@@ -1,0 +1,82 @@
+spring:
+  datasource:
+    mysql:
+      url: jdbc:mysql://60.245.215.207:3306/chaos?autoReconnect=true&failOverReadOnly=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: Zmzzmz010627!
+  main:
+    allow-circular-references: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    host: 60.245.215.207
+    port: 6379
+    database: 0
+    timeout: 60000
+  rabbitmq:
+    host: 60.245.215.207
+    port: 5672
+    username: guest
+    password: guest
+  data:
+    mongodb:
+      host: 60.245.215.207         # MongoDB服务器地址
+      port: 27017               # MongoDB服务器端口
+      database: admin   # MongoDB数据库名称
+      username: root   # MongoDB用户名（如果启用了身份验证）
+      password: Zmzzmz010627!   # MongoDB密码（如果启用了身份验证）
+      field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy
+#mybatis:
+#  configuration:
+#    map-underscore-to-camel-case: true
+mybatis-plus:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  global-config:
+    db-config:
+      logic-delete-field: isDelete  # 全局逻辑删除字段值
+      logic-delete-value: 1         # 逻辑已删除值
+      logic-not-delete-value: 0     # 逻辑未删除值
+server:
+  port: 8888
+  servlet:
+    context-path: /api
+  tomcat:
+    additional-tld-skip-patterns: X-Content-Type-Options
+    max-threads: 2000
+    max-connections: 1000
+chaos:
+  mesh:
+    url: http://60.245.215.207:30854
+    token: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjBuVlZOa0VwcHlqTUE2dURhWi1PSTk4WjBxMXpINXpHT3Z6LXFWMUlieU0ifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzY0OTE2NTI4LCJpYXQiOjE3MzMzODA1MjgsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJkZWZhdWx0Iiwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImFjY291bnQtY2x1c3Rlci1tYW5hZ2VyLWRwcmd6IiwidWlkIjoiYTc3ODA3MTctMTFiNS00ZjRiLWFlMjQtOTJkZWYwZTkyYzVjIn19LCJuYmYiOjE3MzMzODA1MjgsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpkZWZhdWx0OmFjY291bnQtY2x1c3Rlci1tYW5hZ2VyLWRwcmd6In0.Jq3V9qZhYKMIZzHQpA8YpZA3s_GaXsJr-dXgrVtIKrWqXzNBhx1XyAijK9ljv0XM0iB8pd4dU-3hD3Ryni0OkUnFS92XAo_a0T6UTjwI2szOD4NvltQoGxYUK7Zq_iAHnI87qKpXrE6p4dA-MpSApDnHUKtvMR7P8K-a4SdIKXmsK3GU9YLbDzCG6j1dk99ZNi8VKO-S9N0FnCeVAloAjpBkpiCFiXUs4m5ZxVKY4Pk6IbnnOXGpBa6Z1zpyQ5kImH0FaTgiC1zuDGyMvvYEgohKnGK2ypb9T9_uMZb9xX7ZjbDB7iY3aOHXQPAqooNUvh317hCRPDj9m0U5FrLPeQ
+prometheus:
+  url: http://60.245.215.207:9091/api/v1/query_range
+  os-type: ubuntu
+autoTest:
+  url: http://60.245.215.207:8080
+platform:
+  name: cmp
+  workflowaddr: chaos-test
+coroot:
+  url: http://60.245.215.207:8083/api/project/
+  projectId: ld4lglgc
+  cookie: ajs_anonymous_id=321fc8dd-b667-49ff-83ca-3e3f707fe5bb; coroot_session=eyJpZCI6MX0=.K1UuEZdSLh7rIFOp8clF1CyCiXoz-2L3zC7hjO3Njao=; JSESSIONID=DA9DC0841696E24635EB10BFA2BD7850
+file:
+  upload-dir: /data/mj/apache-tomcat-9.0.93/webapps/loadscripts
+#  upload-dir: /Users/mj/study/ISCS/apache-tomcat-9.0.93/webapps/loadscripts
+
+kubernetes:
+  api-url: https://60.245.215.200:6443
+  token: eyJhbGciOiJSUzI1NiIsImtpZCI6IjBuVlZOa0VwcHlqTUE2dURhWi1PSTk4WjBxMXpINXpHT3Z6LXFWMUlieU0ifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzY0OTE2NTI4LCJpYXQiOjE3MzMzODA1MjgsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJkZWZhdWx0Iiwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImFjY291bnQtY2x1c3Rlci1tYW5hZ2VyLWRwcmd6IiwidWlkIjoiYTc3ODA3MTctMTFiNS00ZjRiLWFlMjQtOTJkZWYwZTkyYzVjIn19LCJuYmYiOjE3MzMzODA1MjgsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpkZWZhdWx0OmFjY291bnQtY2x1c3Rlci1tYW5hZ2VyLWRwcmd6In0.Jq3V9qZhYKMIZzHQpA8YpZA3s_GaXsJr-dXgrVtIKrWqXzNBhx1XyAijK9ljv0XM0iB8pd4dU-3hD3Ryni0OkUnFS92XAo_a0T6UTjwI2szOD4NvltQoGxYUK7Zq_iAHnI87qKpXrE6p4dA-MpSApDnHUKtvMR7P8K-a4SdIKXmsK3GU9YLbDzCG6j1dk99ZNi8VKO-S9N0FnCeVAloAjpBkpiCFiXUs4m5ZxVKY4Pk6IbnnOXGpBa6Z1zpyQ5kImH0FaTgiC1zuDGyMvvYEgohKnGK2ypb9T9_uMZb9xX7ZjbDB7iY3aOHXQPAqooNUvh317hCRPDj9m0U5FrLPeQ
+  verify-ssl: false
+
+loadtestservicelist:
+  runTest:
+    url: http://60.245.208.22:6666/api/load/run/{loadId}
+#    url: http://localhost:6666/api/load/run/{loadId}
+    method: POST
+  stopTest:
+     url: http://60.245.208.22:6666/api/load/stop/{loadId}
+#    url: http://localhost:6666/api/load/stop/{loadId}
+     method: POST

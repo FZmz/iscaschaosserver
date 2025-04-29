@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.SelectorMapper">
+  <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.Selector">
+    <!--@mbg.generated-->
+    <!--@Table selector-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="fault_config_id" jdbcType="INTEGER" property="faultConfigId" />
+    <result column="namespace" jdbcType="VARCHAR" property="namespace" />
+    <result column="labels" jdbcType="VARCHAR" property="labels" />
+    <result column="podnames" jdbcType="VARCHAR" property="podnames" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, fault_config_id, namespace, labels, podnames
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from selector
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByFaultConfigKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from selector
+    where fault_config_id = #{faultConfigId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from selector
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.iscas.lndicatormonitor.domain.Selector" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into selector (fault_config_id, namespace, labels, 
+      podnames)
+    values (#{faultConfigId,jdbcType=INTEGER}, #{namespace,jdbcType=VARCHAR}, #{labels,jdbcType=VARCHAR}, 
+      #{podnames,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.iscas.lndicatormonitor.domain.Selector" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into selector
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="faultConfigId != null">
+        fault_config_id,
+      </if>
+      <if test="namespace != null">
+        namespace,
+      </if>
+      <if test="labels != null">
+        labels,
+      </if>
+      <if test="podnames != null">
+        podnames,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="faultConfigId != null">
+        #{faultConfigId,jdbcType=INTEGER},
+      </if>
+      <if test="namespace != null">
+        #{namespace,jdbcType=VARCHAR},
+      </if>
+      <if test="labels != null">
+        #{labels,jdbcType=VARCHAR},
+      </if>
+      <if test="podnames != null">
+        #{podnames,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.iscas.lndicatormonitor.domain.Selector">
+    <!--@mbg.generated-->
+    update selector
+    <set>
+      <if test="faultConfigId != null">
+        fault_config_id = #{faultConfigId,jdbcType=INTEGER},
+      </if>
+      <if test="namespace != null">
+        namespace = #{namespace,jdbcType=VARCHAR},
+      </if>
+      <if test="labels != null">
+        labels = #{labels,jdbcType=VARCHAR},
+      </if>
+      <if test="podnames != null">
+        podnames = #{podnames,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.iscas.lndicatormonitor.domain.Selector">
+    <!--@mbg.generated-->
+    update selector
+    set fault_config_id = #{faultConfigId,jdbcType=INTEGER},
+      namespace = #{namespace,jdbcType=VARCHAR},
+      labels = #{labels,jdbcType=VARCHAR},
+      podnames = #{podnames,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

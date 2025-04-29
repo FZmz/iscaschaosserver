@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.FaultScenarioMapper">
+
+    <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.scenario.FaultScenario">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="planId" column="plan_id" jdbcType="INTEGER"/>
+            <result property="categoryId" column="category_id" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
+            <result property="creatorName" column="creator_name" jdbcType="VARCHAR"/>
+            <result property="createdAt" column="created_at" jdbcType="TIMESTAMP"/>
+            <collection property="tagIds" ofType="java.lang.Integer"
+                            select="selectTagIds" column="id"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id,plan_id,category_id,
+        name,description,
+        creator_name,created_at,updated_at
+    </sql>
+    <select id="selectTagIds" resultType="java.lang.Integer">
+        SELECT tags_id FROM scenario_tags_correlation WHERE scenario_id = #{id}
+    </select>
+</mapper>

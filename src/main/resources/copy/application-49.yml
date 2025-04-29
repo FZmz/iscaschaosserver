@@ -1,0 +1,49 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Zmzzmz010627!
+    url: jdbc:mysql://49.232.65.15:3306/chaos?autoReconnect=true&failOverReadOnly=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    jackson:
+      time-zone: GMT+8
+      date-format: yyyy-MM-dd HH:mm:ss
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  redis:
+    host: 49.232.65.15
+    port: 6379
+    database: 0
+    timeout: 60000
+  rabbitmq:
+    host: 49.232.65.15
+    port: 5672
+    username: guest
+    password: guest
+  data:
+    mongodb:
+      host: 49.232.65.15          # MongoDB服务器地址
+      port: 27017               # MongoDB服务器端口
+      database: admin   # MongoDB数据库名称
+      username: root   # MongoDB用户名（如果启用了身份验证）
+      password: Zmzzmz010627!   # MongoDB密码（如果启用了身份验证）
+      field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+server:
+  port: 8888
+  servlet:
+    context-path: /api
+  tomcat:
+    additional-tld-skip-patterns: X-Content-Type-Options
+    max-threads: 2000
+    max-connections: 1000
+chaos:
+  mesh:
+    url: http://49.232.65.15:30854
+    token: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjVENFFlMEU1cC1Xb1B4dGtCWWpUZUttNFN3MFJqQWJvc1l2RFBZa2xZTzgifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzUwNzUwMjQwLCJpYXQiOjE3MTkyMTQyNDAsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJkZWZhdWx0Iiwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImFjY291bnQtY2x1c3Rlci1tYW5hZ2VyLWR2ZXZsIiwidWlkIjoiNWUxODM3ZmQtODQyNC00ZjY1LWJlN2MtMmFjMGE1YjJiYTg1In19LCJuYmYiOjE3MTkyMTQyNDAsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpkZWZhdWx0OmFjY291bnQtY2x1c3Rlci1tYW5hZ2VyLWR2ZXZsIn0.NAzXp9J5exeOB2RpER2IHQZ-SnQHaHM0wCHRZrZB-oEJgIdxMF9PZMJq1BaERc-62a53o_cCL0K63lkVLGBts36O0MBhzWBw7cgCmJVsKNwnR3BJvUiClvA85Tj5i9MYDUd0AEwSrwUbXCIBetnQnsO_aebRPYFjy7e72T7Cbzs3rZ1F2CP9br9rMnQfKJ-y_HR-HJpC6spigQNaWGj3mKVZtUx2Xq6K7U2idsjm_iG96UQrsOILTyap6KD_5JY2LvqjhHq88pp9SWWrgBcS1khUyji8E1f0fZ42MgETCH2hIZ3PfLh9jc7q2JsNArTNBxEfuI1ufNSvpWUYuQJjZw
+prometheus:
+  url: http://localhost:9090
+autoTest:
+  url: http://localhost:8080

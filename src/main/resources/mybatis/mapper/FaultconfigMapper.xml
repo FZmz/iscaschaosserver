@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.FaultconfigMapper">
+  <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.Faultconfig">
+    <!--@mbg.generated-->
+    <!--@Table faultconfig-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="creator_id" jdbcType="INTEGER" property="creatorId" />
+    <result column="graph" jdbcType="LONGVARCHAR" property="graph" />
+    <result column="fault_type_config" jdbcType="LONGVARCHAR" property="faultTypeConfig" />
+    <result column="node_tag" jdbcType="LONGVARCHAR" property="nodeTag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, create_time, update_time, creator_id, graph, fault_type_Config,node_tag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from faultconfig
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectFaultTagByName" parameterType="java.lang.String" resultType="java.lang.String">
+    <!--@mbg.generated-->
+    select nodeTag
+    from faultconfig
+    where name = #{name,jdbcType=INTEGER}
+  </select>
+  <select id="selectFaultconfigByName" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM faultconfig
+    WHERE name LIKE CONCAT('%',#{name},'%')
+  </select>
+  <select id="selectAll" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from faultconfig
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from faultconfig
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.iscas.lndicatormonitor.domain.Faultconfig" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into faultconfig (`name`, create_time, update_time, 
+      creator_id, graph, fault_type_Config,node_tag
+      )
+    values (#{name,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{creatorId,jdbcType=INTEGER}, #{graph,jdbcType=LONGVARCHAR}, #{faultTypeConfig,jdbcType=LONGVARCHAR},
+    #{nodeTag,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.iscas.lndicatormonitor.domain.Faultconfig" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into faultconfig
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="creatorId != null">
+        creator_id,
+      </if>
+      <if test="graph != null">
+        graph,
+      </if>
+      <if test="faultTypeConfig != null">
+        faultTypeConfig,
+      </if>
+      <if test="nodeTag != null">
+        nodeTag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorId != null">
+        #{creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="graph != null">
+        #{graph,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="faultTypeConfig != null">
+        #{faultTypeConfig,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="nodeTag != null">
+        #{nodeTag,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.iscas.lndicatormonitor.domain.Faultconfig">
+    <!--@mbg.generated-->
+    update faultconfig
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorId != null">
+        creator_id = #{creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="graph != null">
+        graph = #{graph,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="faultTypeConfig != null">
+        faultTypeConfig = #{faultTypeConfig,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="nodeTag != null">
+        nodeTag = #{nodeTag,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.iscas.lndicatormonitor.domain.Faultconfig">
+    <!--@mbg.generated-->
+    update faultconfig
+    set `name` = #{name,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      creator_id = #{creatorId,jdbcType=INTEGER},
+      graph = #{graph,jdbcType=LONGVARCHAR},
+    fault_type_Config = #{faultTypeConfig,jdbcType=LONGVARCHAR},
+    node_tag = #{nodeTag,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+
+</mapper>

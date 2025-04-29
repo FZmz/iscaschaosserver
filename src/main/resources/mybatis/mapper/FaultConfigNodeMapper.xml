@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.FaultConfigNodeMapper">
+
+    <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.faultconfigv2.FaultConfigNode">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="faultConfigId" column="faultConfigId" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="nodeIndex" column="nodeIndex" jdbcType="INTEGER"/>
+            <result property="nodeStatus" column="nodeStatus" jdbcType="INTEGER"/>
+            <result property="nodeType" column="nodeType" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,faultConfigId,name,
+        content,nodeIndex,nodeStatus,
+        nodeType
+    </sql>
+</mapper>

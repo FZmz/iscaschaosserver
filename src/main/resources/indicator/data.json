@@ -1,0 +1,206 @@
+[
+  {
+    "failureName": "Pod-failure",
+    "category": "k8s",
+    "subCategory": "pod",
+    "recommendedMetrics": [
+      "PodPhase",
+      "ContainerRestartCount"
+    ]
+  },
+  {
+    "failureName": "Pod-kill",
+    "category": "k8s",
+    "subCategory": "pod",
+    "recommendedMetrics": [
+      "PodStatus",
+      "PodRecreationTime",
+      "ContainerRestartCount"
+    ]
+  },
+  {
+    "failureName": "Container-kill",
+    "category": "k8s",
+    "subCategory": "pod",
+    "recommendedMetrics": [
+      "ContainerStatus",
+      "RestartCount",
+      "ContainerStartTime",
+      "PodStatus"
+    ]
+  },
+  {
+    "failureName": "delay",
+    "category": "k8s",
+    "subCategory": "network",
+    "recommendedMetrics": [
+      "AverageLatency",
+      "P95Latency",
+      "P99Latency",
+      "Throughput",
+      "ServiceResponseTime"
+    ]
+  },
+  {
+    "failureName": "loss",
+    "category": "k8s",
+    "subCategory": "network",
+    "recommendedMetrics": [
+      "PacketLossRate",
+      "RequestFailureRate",
+      "RetransmissionCount"
+    ]
+  },
+  {
+    "failureName": "duplicate",
+    "category": "k8s",
+    "subCategory": "network",
+    "recommendedMetrics": [
+      "PacketDuplicateRate",
+      "Throughput",
+      "ServiceResponseTime"
+    ]
+  },
+  {
+    "failureName": "corrupt",
+    "category": "k8s",
+    "subCategory": "network",
+    "recommendedMetrics": [
+      "PacketCorruptionRate",
+      "RequestFailureRate",
+      "NetworkThroughput"
+    ]
+  },
+  {
+    "failureName": "bandwidth",
+    "category": "k8s",
+    "subCategory": "network",
+    "recommendedMetrics": [
+      "BandwidthUtilization",
+      "ServiceThroughput",
+      "RequestResponseTime"
+    ]
+  },
+  {
+    "failureName": "partition",
+    "category": "k8s",
+    "subCategory": "network",
+    "recommendedMetrics": [
+      "NetworkConnectionStatus",
+      "ServiceAvailability",
+      "RetryCount",
+      "ServicePortMonitoring"
+    ]
+  },
+  {
+    "failureName": "cpustress",
+    "category": "k8s",
+    "subCategory": "stress",
+    "recommendedMetrics": [
+      "CPUUsage",
+      "LoadAverage",
+      "ServiceResponseTime",
+      "ServiceThroughput"
+    ]
+  },
+  {
+    "failureName": "memorystress",
+    "category": "k8s",
+    "subCategory": "stress",
+    "recommendedMetrics": [
+      "MemoryUsage",
+      "CacheHitRate",
+      "OOMEvents",
+      "ServiceResponseTime"
+    ]
+  },
+  {
+    "failureName": "latency",
+    "category": "k8s",
+    "subCategory": "IO",
+    "recommendedMetrics": [
+      "IOLatency",
+      "IOThroughput",
+      "FileSystemErrorRate"
+    ]
+  },
+  {
+    "failureName": "fault",
+    "category": "k8s",
+    "subCategory": "IO",
+    "recommendedMetrics": [
+      "IOErrorRate",
+      "DiskWriteFailureCount",
+      "RequestFailureRate"
+    ]
+  },
+  {
+    "failureName": "attrOverride",
+    "category": "k8s",
+    "subCategory": "IO",
+    "recommendedMetrics": [
+      "FileSystemAttributeChange",
+      "FileReadWriteStatus",
+      "SystemErrorLog"
+    ]
+  },
+  {
+    "failureName": "mistake",
+    "category": "k8s",
+    "subCategory": "IO",
+    "recommendedMetrics": [
+      "ReadWriteErrorRate",
+      "FileSystemStatus",
+      "RequestFailureCount"
+    ]
+  },
+  {
+    "failureName": "error",
+    "category": "k8s",
+    "subCategory": "DNS",
+    "recommendedMetrics": [
+      "DNSRequestSuccessRate",
+      "DNSResponseTime",
+      "DNSResolutionFailureCount"
+    ]
+  },
+  {
+    "failureName": "random",
+    "category": "k8s",
+    "subCategory": "DNS",
+    "recommendedMetrics": [
+      "DNSRequestSuccessRate",
+      "DNSResponseTime",
+      "ResolutionFailureCount"
+    ]
+  },
+  {
+    "failureName": "timeOffset",
+    "category": "k8s",
+    "subCategory": "Time",
+    "recommendedMetrics": [
+      "TimeSyncStatus",
+      "ClockOffset",
+      "ApplicationEventTimestamp"
+    ]
+  },
+  {
+    "failureName": "latency",
+    "category": "k8s",
+    "subCategory": "JVM",
+    "recommendedMetrics": [
+      "JVMResponseTime",
+      "GCDelay",
+      "ThreadSuspensionEvents"
+    ]
+  },
+  {
+    "failureName": "return",
+    "category": "k8s",
+    "subCategory": "JVM",
+    "recommendedMetrics": [
+      "ErrorReturnRate",
+      "ExceptionLogs"
+    ]
+  }
+]

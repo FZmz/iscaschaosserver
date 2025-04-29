@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.ReportMapper">
+  <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.Report">
+    <!--@mbg.generated-->
+    <!--@Table report-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="record_id" jdbcType="INTEGER" property="recordId" />
+    <result column="result" jdbcType="INTEGER" property="result" />
+    <result column="conclusion" jdbcType="LONGVARCHAR" property="conclusion" />
+    <result column="question" jdbcType="LONGVARCHAR" property="question" />
+    <result column="principal" jdbcType="VARCHAR" property="principal" />
+    <result column="suggestion" jdbcType="LONGVARCHAR" property="suggestion" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="creator_id" jdbcType="INTEGER" property="creatorId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, record_id, `result`, conclusion, question, principal, suggestion, create_time, 
+    update_time, `name`, creator_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from report
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from report
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from report
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.iscas.lndicatormonitor.domain.Report" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into report (record_id, `result`, conclusion, 
+      question, principal, suggestion, 
+      create_time, update_time, `name`, 
+      creator_id)
+    values (#{recordId,jdbcType=INTEGER}, #{result,jdbcType=INTEGER}, #{conclusion,jdbcType=LONGVARCHAR}, 
+      #{question,jdbcType=LONGVARCHAR}, #{principal,jdbcType=VARCHAR}, #{suggestion,jdbcType=LONGVARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{name,jdbcType=VARCHAR}, 
+      #{creatorId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.iscas.lndicatormonitor.domain.Report" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into report
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="recordId != null">
+        record_id,
+      </if>
+      <if test="result != null">
+        `result`,
+      </if>
+      <if test="conclusion != null">
+        conclusion,
+      </if>
+      <if test="question != null">
+        question,
+      </if>
+      <if test="principal != null">
+        principal,
+      </if>
+      <if test="suggestion != null">
+        suggestion,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="creatorId != null">
+        creator_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="recordId != null">
+        #{recordId,jdbcType=INTEGER},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=INTEGER},
+      </if>
+      <if test="conclusion != null">
+        #{conclusion,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="question != null">
+        #{question,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="principal != null">
+        #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="suggestion != null">
+        #{suggestion,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorId != null">
+        #{creatorId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.iscas.lndicatormonitor.domain.Report">
+    <!--@mbg.generated-->
+    update report
+    <set>
+      <if test="recordId != null">
+        record_id = #{recordId,jdbcType=INTEGER},
+      </if>
+      <if test="result != null">
+        `result` = #{result,jdbcType=INTEGER},
+      </if>
+      <if test="conclusion != null">
+        conclusion = #{conclusion,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="question != null">
+        question = #{question,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="principal != null">
+        principal = #{principal,jdbcType=VARCHAR},
+      </if>
+      <if test="suggestion != null">
+        suggestion = #{suggestion,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorId != null">
+        creator_id = #{creatorId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.iscas.lndicatormonitor.domain.Report">
+    <!--@mbg.generated-->
+    update report
+    set record_id = #{recordId,jdbcType=INTEGER},
+      `result` = #{result,jdbcType=INTEGER},
+      conclusion = #{conclusion,jdbcType=LONGVARCHAR},
+      question = #{question,jdbcType=LONGVARCHAR},
+      principal = #{principal,jdbcType=VARCHAR},
+      suggestion = #{suggestion,jdbcType=LONGVARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      `name` = #{name,jdbcType=VARCHAR},
+      creator_id = #{creatorId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="checkRecordIdExists" resultType="java.lang.Integer" parameterType="int">
+    SELECT COUNT(*) FROM report WHERE record_id = #{recordId}
+  </select>
+
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.LoadApiMapper">
+
+    <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.LoadApi">
+        <id property="id" column="id" jdbcType="VARCHAR"/>
+        <result property="loadId" column="load_id" jdbcType="VARCHAR"/>
+        <result property="targetService" column="target_service" jdbcType="VARCHAR"/>
+        <result property="userCount" column="user_count" jdbcType="INTEGER"/>
+        <result property="loadPattern" column="load_pattern" jdbcType="VARCHAR"/>
+        <result property="duration" column="duration" jdbcType="VARCHAR"/>
+        <result property="requestUrl" column="request_url" jdbcType="VARCHAR"/>
+        <result property="requestParams" column="request_params" jdbcType="VARCHAR"/>
+        <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="isDelete" column="is_delete" jdbcType="INTEGER"/>
+        <result property="httpMethod" column="http_method" jdbcType="VARCHAR"/>
+        <result property="customHeaders" column="custom_headers" jdbcType="LONGVARCHAR"/>
+        <result property="requestBody" column="request_body" jdbcType="LONGVARCHAR"/>
+        <result property="rampUpTime" column="ramp_up_time" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,application_id,name,
+        type,creat_time,update_time,
+        is_delete
+    </sql>
+</mapper>

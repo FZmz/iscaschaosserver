@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.NodeagentMapper">
+
+    <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.Nodeagent">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="applicationId" column="application_id" jdbcType="VARCHAR"/>
+            <result property="agentName" column="agent_name" jdbcType="VARCHAR"/>
+            <result property="agentIp" column="agent_ip" jdbcType="VARCHAR"/>
+            <result property="agentUsr" column="agent_usr" jdbcType="VARCHAR"/>
+            <result property="agentPwd" column="agent_pwd" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="is_delete" jdbcType="INTEGER"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="agentPort" column="agent_port" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,application_id,agent_name,
+        agent_ip,agent_usr,agent_pwd,
+        create_time,is_delete,update_time,agent_port
+    </sql>
+
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.ConfigTargetMapper">
+
+    <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.faultconfigv2.ConfigTarget">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="faultConfigId" column="fault_config_id" jdbcType="INTEGER"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id,fault_config_id,content
+    </sql>
+    <select id="selectByFaultConfigId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List" />
+        from config_target
+        where fault_config_id = #{faultConfigId,jdbcType=INTEGER}
+    </select>
+</mapper>

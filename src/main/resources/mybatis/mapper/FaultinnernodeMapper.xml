@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.FaultinnernodeMapper">
+  <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.Faultinnernode">
+    <!--@mbg.generated-->
+    <!--@Table faultinnernode-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="fault_config_id" jdbcType="INTEGER" property="faultConfigId" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="node_index" jdbcType="INTEGER" property="nodeIndex" />
+    <result column="node_status" jdbcType="INTEGER" property="nodeStatus" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="node_type" jdbcType="VARCHAR" property="nodeType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, fault_config_id, content, node_index, node_status, `name`, node_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from faultinnernode
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByFaultConfigId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from faultinnernode
+    where fault_config_id = #{faultConfigId,jdbcType=INTEGER}
+  </select>
+
+  <delete id="deleteByFaultConfigId" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from faultinnernode
+    where fault_config_id = #{faultConfigId,jdbcType=INTEGER}
+  </delete>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from faultinnernode
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.iscas.lndicatormonitor.domain.Faultinnernode" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into faultinnernode (fault_config_id, content, node_index, 
+      node_status, `name`, node_type
+      )
+    values (#{faultConfigId,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR}, #{nodeIndex,jdbcType=INTEGER}, 
+      #{nodeStatus,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{nodeType,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.iscas.lndicatormonitor.domain.Faultinnernode" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into faultinnernode
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="faultConfigId != null">
+        fault_config_id,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="nodeIndex != null">
+        node_index,
+      </if>
+      <if test="nodeStatus != null">
+        node_status,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="nodeType != null">
+        node_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="faultConfigId != null">
+        #{faultConfigId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="nodeIndex != null">
+        #{nodeIndex,jdbcType=INTEGER},
+      </if>
+      <if test="nodeStatus != null">
+        #{nodeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeType != null">
+        #{nodeType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.iscas.lndicatormonitor.domain.Faultinnernode">
+    <!--@mbg.generated-->
+    update faultinnernode
+    <set>
+      <if test="faultConfigId != null">
+        fault_config_id = #{faultConfigId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="nodeIndex != null">
+        node_index = #{nodeIndex,jdbcType=INTEGER},
+      </if>
+      <if test="nodeStatus != null">
+        node_status = #{nodeStatus,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeType != null">
+        node_type = #{nodeType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.iscas.lndicatormonitor.domain.Faultinnernode">
+    <!--@mbg.generated-->
+    update faultinnernode
+    set fault_config_id = #{faultConfigId,jdbcType=INTEGER},
+      content = #{content,jdbcType=LONGVARCHAR},
+      node_index = #{nodeIndex,jdbcType=INTEGER},
+      node_status = #{nodeStatus,jdbcType=INTEGER},
+      `name` = #{name,jdbcType=VARCHAR},
+      node_type = #{nodeType,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

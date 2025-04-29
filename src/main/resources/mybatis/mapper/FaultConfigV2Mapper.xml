@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.FaultConfigV2Mapper">
+
+    <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.faultconfigv2.FaultConfigV2">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="creatorName" column="creatorName" jdbcType="VARCHAR"/>
+            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="graph" column="graph" jdbcType="VARCHAR"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="nodeTag" column="nodeTag" jdbcType="VARCHAR"/>
+            <result property="targetType" column="targetType" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,creatorName,
+        createTime,updateTime,graph,
+        content,nodeTag,targetType
+    </sql>
+</mapper>

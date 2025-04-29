@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.RecommendedMetricsMapper">
+
+    <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.IndexRecommend.RecommendedMetrics">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="metricName" column="metric_name" jdbcType="VARCHAR"/>
+            <result property="tool" column="tool" jdbcType="VARCHAR"/>
+            <result property="operationPath" column="operation_path" jdbcType="VARCHAR"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,metric_name,tool,
+        operation_path,description
+    </sql>
+</mapper>

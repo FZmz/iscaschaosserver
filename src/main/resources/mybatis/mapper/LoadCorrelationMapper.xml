@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.LoadCorrelationMapper">
+
+    <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.LoadCorrelation">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="loadTaskId" column="load_task_id" jdbcType="VARCHAR"/>
+            <result property="chaosExerciseRecordId" column="chaos_exercise_record_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,load_task_id,chaos_exercise_record_id
+    </sql>
+</mapper>

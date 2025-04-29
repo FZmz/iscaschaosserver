@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.WorkflowMapper">
+  <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.Workflow">
+    <!--@mbg.generated-->
+    <!--@Table workflow-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="nodes" jdbcType="VARCHAR" property="nodes" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, content, nodes
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from workflow
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from workflow
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.iscas.lndicatormonitor.domain.Workflow" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into workflow (content, nodes
+      )
+    values (#{content,jdbcType=LONGVARCHAR}, #{nodes,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.iscas.lndicatormonitor.domain.Workflow" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into workflow
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="content != null">
+        content,
+      </if>
+      <if test="nodes != null">
+        nodes,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="nodes != null">
+        #{nodes,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.iscas.lndicatormonitor.domain.Workflow">
+    <!--@mbg.generated-->
+    update workflow
+    <set>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="nodes != null">
+        nodes = #{nodes,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.iscas.lndicatormonitor.domain.Workflow">
+    <!--@mbg.generated-->
+    update workflow
+    set content = #{content,jdbcType=LONGVARCHAR},
+      nodes = #{nodes,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Zmzzmz010627!
+    url: jdbc:mysql://10.92.231.180:3306/chaos?autoReconnect=true&failOverReadOnly=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    jackson:
+      time-zone: GMT+8
+      date-format: yyyy-MM-dd HH:mm:ss
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  redis:
+    host: 10.92.231.180
+    port: 6379
+    database: 0
+    timeout: 60000
+  rabbitmq:
+    host: 10.92.231.180
+    port: 5672
+    username: guest
+    password: guest
+  data:
+    mongodb:
+      host: 10.92.231.180          # MongoDB服务器地址
+      port: 27017               # MongoDB服务器端口
+      database: admin   # MongoDB数据库名称
+      username: root   # MongoDB用户名（如果启用了身份验证）
+      password: Zmzzmz010627!   # MongoDB密码（如果启用了身份验证）
+      field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+server:
+  port: 8888
+  servlet:
+    context-path: /api
+  tomcat:
+    additional-tld-skip-patterns: X-Content-Type-Options
+    max-threads: 2000
+    max-connections: 1000
+chaos:
+  mesh:
+    url: http://10.92.231.180:30854
+    token: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjVENFFlMEU1cC1Xb1B4dGtCWWpUZUttNFN3MFJqQWJvc1l2RFBZa2xZTzgifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzQwODIzNDU4LCJpYXQiOjE3MDkyODc0NTgsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJkZWZhdWx0Iiwic2VydmljZWFjY291bnQiOnsibmFtZSI6ImFjY291bnQtY2x1c3Rlci1tYW5hZ2VyLWpqanR4IiwidWlkIjoiNjVjNzQxMzgtZDFlYi00Y2QzLTg5NWUtZDQzNzcyZmQ3ZTkxIn19LCJuYmYiOjE3MDkyODc0NTgsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpkZWZhdWx0OmFjY291bnQtY2x1c3Rlci1tYW5hZ2VyLWpqanR4In0.J0UQMu6flfAeh389WXcGcpuAokkYQzk0XZJNLjae5GjYSe9BNGk5Vn53ilO8MwRw7Mxk8WN-JwdCdIzXVCeO-CqPhtKDm5D5BZZ3RFIgLRepzKw9CYE3_aXXcs5PV4zH4o_S4jEtfLKz3Ya57hlAswTmdtbi0zA_KwoqFNFA2UEvkFBz840bQhD1FUp3h5W1F6JTuKY0Tbxjv3_qcg8o_hELG690LxrpNPm3JZlk_9hyTbx7KqetEk5bgVSqz4UrbyEZvhFO3B1roMwxzEQzJgf7tPzpBrrvSYdfboO0nYAM7q6YhZ6eFRXngYfQn3Z6ViefApQIOKJKqkvZAyHCow
+prometheus:
+  url: http://10.92.231.180:30853

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.Planv2Mapper">
+
+    <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.Planv2">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="sceneDesc" column="scene_desc" jdbcType="VARCHAR"/>
+            <result property="expection" column="expection" jdbcType="VARCHAR"/>
+            <result property="workflowId" column="workflow_id" jdbcType="INTEGER"/>
+            <result property="applicationId" column="application_id" jdbcType="INTEGER"/>
+            <result property="creatorId" column="creator_id" jdbcType="INTEGER"/>
+            <result property="graph" column="graph" jdbcType="VARCHAR"/>
+            <result property="planType" column="plan_type" jdbcType="INTEGER"/>
+            <result property="excuteTime" column="excute_time" jdbcType="TIMESTAMP"/>
+            <result property="loadId" column="load_id" jdbcType="VARCHAR"/>
+            <result property="duration" column="duration" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,create_time,
+        update_time,scene_desc,expection,application_id
+        workflow_id,creator_id,graph,
+        plan_type,excute_time,load_id,duration
+    </sql>
+</mapper>

@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: @profile.active@
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+server:
+  tomcat:
+    max-http-form-post-size: 10MB
+    max-swallow-size: 10MB
+logging:
+  level:
+    org.springframework.security: WARN

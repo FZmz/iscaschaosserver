@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.HistoryPwdMapper">
+  <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.HistoryPwd">
+    <!--@mbg.generated-->
+    <!--@Table historyPwd-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="userId" jdbcType="INTEGER" property="userid" />
+    <result column="passwordHash" jdbcType="VARCHAR" property="passwordhash" />
+    <result column="changeDate" jdbcType="TIMESTAMP" property="changedate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, userId, passwordHash, changeDate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from historyPwd
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectLastFiveByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from historyPwd
+    where userId = #{userId,jdbcType=INTEGER}
+    order by changeDate DESC
+    limit 5
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from historyPwd
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.iscas.lndicatormonitor.domain.HistoryPwd">
+    <!--@mbg.generated-->
+    insert into historyPwd (id, userId, passwordHash, 
+      changeDate)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{passwordhash,jdbcType=VARCHAR}, 
+      #{changedate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.iscas.lndicatormonitor.domain.HistoryPwd">
+    <!--@mbg.generated-->
+    insert into historyPwd
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="passwordhash != null">
+        passwordHash,
+      </if>
+      <if test="changedate != null">
+        changeDate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="passwordhash != null">
+        #{passwordhash,jdbcType=VARCHAR},
+      </if>
+      <if test="changedate != null">
+        #{changedate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.iscas.lndicatormonitor.domain.HistoryPwd">
+    <!--@mbg.generated-->
+    update historyPwd
+    <set>
+      <if test="userid != null">
+        userId = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="passwordhash != null">
+        passwordHash = #{passwordhash,jdbcType=VARCHAR},
+      </if>
+      <if test="changedate != null">
+        changeDate = #{changedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.iscas.lndicatormonitor.domain.HistoryPwd">
+    <!--@mbg.generated-->
+    update historyPwd
+    set userId = #{userid,jdbcType=INTEGER},
+      passwordHash = #{passwordhash,jdbcType=VARCHAR},
+      changeDate = #{changedate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.LoginattemptMapper">
+  <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.Loginattempt">
+    <!--@mbg.generated-->
+    <!--@Table loginattempt-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="userId" jdbcType="INTEGER" property="userId" />
+    <result column="login_attempts" jdbcType="INTEGER" property="loginAttempts" />
+    <result column="lock_until" jdbcType="TIMESTAMP" property="lockUntil" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, userId, login_attempts, lock_until
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from loginattempt
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from loginattempt
+    where userId = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from loginattempt
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.iscas.lndicatormonitor.domain.Loginattempt">
+    <!--@mbg.generated-->
+    insert into loginattempt (id, userId, login_attempts,
+      lock_until)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{loginAttempts,jdbcType=INTEGER},
+      #{lockUntil,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.iscas.lndicatormonitor.domain.Loginattempt">
+    <!--@mbg.generated-->
+    insert into loginattempt
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        userId,
+      </if>
+      <if test="loginAttempts != null">
+        login_attempts,
+      </if>
+      <if test="lockUntil != null">
+        lock_until,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="loginAttempts != null">
+        #{loginAttempts,jdbcType=INTEGER},
+      </if>
+      <if test="lockUntil != null">
+        #{lockUntil,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.iscas.lndicatormonitor.domain.Loginattempt">
+    <!--@mbg.generated-->
+    update loginattempt
+    <set>
+      <if test="userId != null">
+        userId = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="loginAttempts != null">
+        login_attempts = #{loginAttempts,jdbcType=INTEGER},
+      </if>
+      <if test="lockUntil != null">
+        lock_until = #{lockUntil,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.iscas.lndicatormonitor.domain.Loginattempt">
+    <!--@mbg.generated-->
+    update loginattempt
+    set userId = #{userId,jdbcType=INTEGER},
+      login_attempts = #{loginAttempts,jdbcType=INTEGER},
+      lock_until = #{lockUntil,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

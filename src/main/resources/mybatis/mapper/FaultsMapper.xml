@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iscas.lndicatormonitor.mapper.FaultsMapper">
+
+    <resultMap id="BaseResultMap" type="com.iscas.lndicatormonitor.domain.IndexRecommend.Faults">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="faultName" column="fault_name" jdbcType="VARCHAR"/>
+            <result property="platform" column="platform" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,fault_name,platform
+    </sql>
+</mapper>
